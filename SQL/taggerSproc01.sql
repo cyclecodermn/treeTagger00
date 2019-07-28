@@ -41,6 +41,31 @@ go
 	(16,3,'Retirement');
 
 	SET IDENTITY_INSERT TagCategoriesTable OFF;
+-- -  -   -    -     -      -       -        -
+
+-- -  -   -    -     -      -       -        -
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'ShowParentsAndChildren')
+		DROP PROCEDURE ShowParentsAndChildren
+GO
+
+CREATE PROCEDURE ShowParentsAndChildren AS
+BEGIN
+
+	SELECT TagParentTable.TagName AS TagParent, TagChildTable.TagName AS TagChild
+	FROM TagCategoriesTable TagParentTable 
+	INNER JOIN TagCategoriesTable TagChildTable
+	ON TagParentTable.TagNameId = TagChildTable.TagParentId
+
+	ORDER BY TagParent, TagChild;
+
+END
+GO
+
+
+-- -  -   -    -     -      -       -        -
+
+
 
 -- -  -   -    -     -      -       -        -
 ---- Add code below after adding ASP Users
