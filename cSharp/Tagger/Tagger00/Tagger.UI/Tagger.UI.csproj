@@ -316,6 +316,16 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Tagger.Data\Tagger.Data.csproj">
+      <Project>{5c92bf6b-084c-461e-963b-425233385ab9}</Project>
+      <Name>Tagger.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tagger.Models\Tagger.Models.csproj">
+      <Project>{8564a7ff-9564-4e41-b287-0d20f7bdadda}</Project>
+      <Name>Tagger.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

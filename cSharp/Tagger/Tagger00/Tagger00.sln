@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tagger.UI", "Tagger.UI\Tagger.UI.csproj", "{DC44CFD2-7056-4F0F-9EEE-B335F17B3578}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tagger.Data", "Tagger.Data\Tagger.Data.csproj", "{5C92BF6B-084C-461E-963B-425233385AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tagger.Models", "Tagger.Models\Tagger.Models.csproj", "{8564A7FF-9564-4E41-B287-0D20F7BDADDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DC44CFD2-7056-4F0F-9EEE-B335F17B3578}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC44CFD2-7056-4F0F-9EEE-B335F17B3578}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC44CFD2-7056-4F0F-9EEE-B335F17B3578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C92BF6B-084C-461E-963B-425233385AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C92BF6B-084C-461E-963B-425233385AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C92BF6B-084C-461E-963B-425233385AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C92BF6B-084C-461E-963B-425233385AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8564A7FF-9564-4E41-B287-0D20F7BDADDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8564A7FF-9564-4E41-B287-0D20F7BDADDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8564A7FF-9564-4E41-B287-0D20F7BDADDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8564A7FF-9564-4E41-B287-0D20F7BDADDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
