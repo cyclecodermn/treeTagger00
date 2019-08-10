@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tagger.Data.Models
 {
-    public class TagCatsTableRow
+    public class OutlineVM1
     {
-        public int TagNameId { get; set; }
-        public int? TagParentId { get; set; }
+        public List<int> TagId { get; set; }
+        public List<int> ParentId { get; set; }
         public string TagName { get; set; }
-        public DateTime TagAddedDate { get; set; }
     }
 }

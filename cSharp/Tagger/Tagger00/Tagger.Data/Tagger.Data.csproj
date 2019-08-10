@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\OutlineVM1.cs" />
     <Compile Include="Models\TagCategoriesTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\TagCatsRepoDapper.cs" />

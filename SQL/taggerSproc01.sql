@@ -23,7 +23,7 @@ go
 	
 	INSERT INTO TagCategoriesTable (TagNameId, TagParentId, TagName)
 	VALUES
-	(1,null,'Age'),
+	(1,NULL,'Age'),
 	(2,1,'Old'),
 	(3,2,'Looking Back'),
 	(4,3,'Good'),
@@ -76,7 +76,7 @@ BEGIN
 
 	SELECT * FROM TagCategoriesTable 
 
-	ORDER BY TagNameId, TagParentId;
+	ORDER BY TagParentId, TagNameId;
 
 END
 GO
