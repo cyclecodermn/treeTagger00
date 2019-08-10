@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Tagger.Data.Models;
+using Tagger.Data.Repos;
 
 namespace Tagger.UI.Controllers
 {
@@ -15,9 +17,11 @@ namespace Tagger.UI.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            TagCatsRepoDapper repo = new TagCatsRepoDapper();
+            IEnumerable<TagCatsTableRow> allCats = repo.GetAll();
 
-            return View();
+            return View(allCats);
+
         }
 
         public ActionResult Contact()

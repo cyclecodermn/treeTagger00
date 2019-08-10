@@ -1,7 +1,25 @@
-﻿@{
+﻿@model List<Tagger.Data.Models.TagCatsTableRow>
+
+@{
     ViewBag.Title = "About";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<h4>Tagger Categories</h4>
+<table class="table">
+    <tbody>
+        @foreach (var tag in Model)
+        {
+            <tr>
+                <td>@tag.TagNameId</td>
+                <td>@tag.TagParentId</td>
+                <td>@tag.TagName</td>
+                <td>@tag.TagAddedDate</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

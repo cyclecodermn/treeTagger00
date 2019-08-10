@@ -20,8 +20,12 @@ namespace Tagger.Data.Repos
                 cn.ConnectionString = "Server=ALEXANDRA\\SQLEXPRESS;Database=TaggerTree00;Trusted_Connection=True;";
                 //cn.ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 
-                return cn.Query<TagCatsTableRow>("GetAllTagTable",
+                IEnumerable<TagCatsTableRow> returnVar = cn.Query<TagCatsTableRow>("GetAllTagTable",
                     commandType: CommandType.StoredProcedure);
+                return returnVar;
+
+                //return cn.Query<TagCatsTableRow>("GetAllTagTable",
+                //    commandType: CommandType.StoredProcedure);
             }
         }
     }
