@@ -65,6 +65,28 @@ GO
 
 -- -  -   -    -     -      -       -        -
 
+-- -  -   -    -     -      -       -        -
+IF EXISTS(SELECT * FROM INFORMATION_SCHEMA.ROUTINES
+	WHERE ROUTINE_NAME = 'GetAllTagTable')
+		DROP PROCEDURE GetAllTagTable
+GO
+
+CREATE PROCEDURE GetAllTagTable AS
+BEGIN
+
+	SELECT * FROM TagCategoriesTable 
+
+	ORDER BY TagNameId, TagParentId;
+
+END
+GO
+
+
+-- -  -   -    -     -      -       -        -
+
+
+
+
 
 
 -- -  -   -    -     -      -       -        -
