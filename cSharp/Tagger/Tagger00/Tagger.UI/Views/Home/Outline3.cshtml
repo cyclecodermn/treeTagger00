@@ -1,0 +1,46 @@
+﻿@using System.Web.UI.WebControls
+@model List<Tagger.Data.Models.TagCatsTableRow>
+
+@{
+    ViewBag.Title = "About";
+}
+
+@functions{
+
+    public int sum(int x, int y)
+    {
+        return x + y;
+    }
+
+}
+
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<h4>Tagger Categories</h4>
+
+
+@{
+    <ul>
+
+        @for (int i = 1; i < 10; i++)
+        {
+            if (i > 3 && i < 6)
+            {
+                <ul>
+                    <li> @sum(i, 10) </li>
+                </ul>
+            }
+            else
+            {
+                <li> @sum(i, 10) </li>
+
+            }
+
+        }
+    </ul>
+
+}

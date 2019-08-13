@@ -1,4 +1,5 @@
-﻿@model List<Tagger.Data.Models.TagCatsTableRow>
+﻿@using System.Web.UI.WebControls
+@model List<Tagger.Data.Models.TagCatsTableRow>
 
 @{
     ViewBag.Title = "About";
@@ -9,15 +10,15 @@
 <p>Use this area to provide additional information.</p>
 
 <h4>Tagger Categories</h4>
-<ul>
-    @{
-        int crntFolder = (int) Model[0].TagNameId;
-        for (int i = 1; i < Model.Count; i++)
+@{
+    int crntFolder = (int)Model[0].TagNameId;
+    for (int i = 1; i < Model.Count; i++)
+    {
+        while (crntFolder == Model[i].TagParentId)
         {
-            while (crntFolder == Model[i].TagParentId)
-            {
-
-            }
+            <ul>
+                @Repeat(Model[i].TagName, 3, @<li>@item.Name</li>)
+            </ul>
         }
     }
-</ul>
+}

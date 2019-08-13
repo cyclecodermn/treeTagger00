@@ -1,0 +1,54 @@
+﻿@using System.Web.UI.WebControls
+@model List<Tagger.Data.Models.TagCatsTableRow>
+
+@{
+    ViewBag.Title = "About";
+}
+
+@functions{
+
+    public int sum(int x, int y)
+    {
+        return x + y;
+    }
+
+
+}
+
+
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<h4>Tagger Categories</h4>
+
+
+@{
+    <ul>
+        @{
+            string crntFolder = Model[0].TagName;
+            int crntFolderId = Model[0].TagNameId;
+
+            @crntFolder
+            for (int i = 1; i < Model.Count; i++)
+             {
+                 if (crntFolderId == Model[i].TagParentId)
+                 {
+
+                     <li> @Model[i].TagName </li>
+
+                 }
+                 else
+                 {
+                     crntFolder = Model[i].TagName;
+                     @crntFolder;
+                     <ul>
+                         <li> @Model[i].TagName </li>
+                     </ul>
+                 }
+             }
+        }
+    </ul>
+
+}

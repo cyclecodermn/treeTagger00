@@ -11,6 +11,7 @@ namespace Tagger.UI.Controllers
     public class HomeController : Controller
     {
 
+        private TagCatsRepoDapper _repo = new TagCatsRepoDapper();
 
         public ActionResult Index()
         {
@@ -19,14 +20,57 @@ namespace Tagger.UI.Controllers
 
         public ActionResult About()
         {
-            TagCatsRepoDapper repo = new TagCatsRepoDapper();
-            IEnumerable<TagCatsTableRow> allCats = repo.GetAll();
-
+            List<TagCatsTableRow> allCats = _repo.GetAll().ToList();
+            
             return View(allCats);
 
         }
 
+        public ActionResult Outline1()
+        //Tried to put all the html into an array
+        {
+            List<TagCatsTableRow> allCats = _repo.GetAll().ToList();
+
+            string[] htmlBlock = new string[allCats.Count+1];
+            int crntFolderId = allCats[0].TagNameId;
+            string crntFolder = allCats[0].TagName;
+
+            htmlBlock[0] = "<ul>" + "<li>" + crntFolder + "</li>";
+
+            for (int i = 1; i < allCats.Count; i++)
+            {
+                if (allCats[i].TagParentId == crntFolderId)
+                {
+                    htmlBlock[i] = "<ul>" + "<li>" + crntFolder + "</li>";
+                    htmlBlock[i] += "<li>" + allCats[i].TagName + "/</li>";
+                }
+                else
+                {
+                    htmlBlock[i] += "</ul>" + "<li>" + crntFolder + "</li>";
+                    crntFolder = allCats[i].TagName;
+                }
+
+            }
+            htmlBlock[allCats.Count] = "</ul>";
+
+            return View(htmlBlock);
+        }
+
+        public ActionResult Outline2()
+        {
+            List<TagCatsTableRow> allCats = _repo.GetAll().ToList();
+            return View(allCats);
+        }
+
+        public ActionResult Outline3()
+        {
+            List<TagCatsTableRow> allCats = _repo.GetAll().ToList();
+            return View(allCats);
+        }
+
+
         public ActionResult Contact()
+        // I lost track of what this code does.
         {
             TagCatsRepoDapper repo = new TagCatsRepoDapper();
             IEnumerable<TagCatsTableRow> allCats = repo.GetAll();
@@ -37,9 +81,9 @@ namespace Tagger.UI.Controllers
 
             foreach (TagCatsTableRow oneTag in allCats)
             {
-                tagId = oneTag.TagNameId;
-                parentId = (int)oneTag.TagParentId;
-                tagName = oneTag.TagName;
+                //tagId = oneTag.TagNameId;
+                //parentId = (int)oneTag.TagParentId;
+                //tagName = oneTag.TagName;
 
                 OutlineVM1 nextTagInfo = new OutlineVM1();
                 nextTagInfo.TagId.Add(oneTag.TagNameId);
