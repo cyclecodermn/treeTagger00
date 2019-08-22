@@ -25,30 +25,29 @@
 
 
 @{
-    <ul>
-        @{
-            string crntFolder = Model[0].TagName;
-            int crntFolderId = Model[0].TagNameId;
+<ul>
+    @{
+        string crntFolder = Model[0].TagName;
+        int crntFolderId = Model[0].TagNameId;
+        bool sameFolder = true;
+        @crntFolder
+        for (int i = 1; i < Model.Count; i++)
+        {
+            <ul>
 
-            @crntFolder
-            for (int i = 1; i < Model.Count; i++)
-             {
-                 if (crntFolderId == Model[i].TagParentId)
-                 {
+            if (crntFolderId == Model[i].TagParentId)
+            {
+                    <li>@Model[i].TagName </li>
+            }
+            else
+            {
+                crntFolder = Model[i].TagName;
+                    <li>@crntFolder</li>
 
-                     <li> @Model[i].TagName </li>
-
-                 }
-                 else
-                 {
-                     crntFolder = Model[i].TagName;
-                     @crntFolder;
-                     <ul>
-                         <li> @Model[i].TagName </li>
-                     </ul>
-                 }
-             }
+            }
+            </ul>
         }
-    </ul>
+    }
+</ul>
 
 }
